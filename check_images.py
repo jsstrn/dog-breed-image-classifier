@@ -43,7 +43,7 @@ def main():
     # Measures total program runtime by collecting start time
     start_time = time()
 
-    # TODO 1: Define get_input_args function within the file get_input_args.py
+    # Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
     # the user running the program from a terminal window. This function returns
     # the collection of these command line arguments from the function call as
