@@ -20,16 +20,17 @@
 #           of the pet and classifier labels as the item at index 2 of the list.
 #
 ##
-# Imports classifier function for using CNN to classify images 
-from classifier import classifier 
+# Imports classifier function for using CNN to classify images
+from classifier import classifier
 
-# TODO 3: Define classify_images function below, specifically replace the None
+
+# Define classify_images function below, specifically replace the None
 #       below by the function definition of the classify_images function. 
 #       Notice that this function doesn't return anything because the 
 #       results_dic dictionary that is passed into the function is a mutable 
 #       data type so no return is needed.
 # 
-def classify_images(images_dir, results_dic, model):
+def classify_images(image_dir, results, model):
     """
     Creates classifier labels with classifier function, compares pet labels to 
     the classifier labels, and adds the classifier label and the comparison of 
@@ -63,6 +64,25 @@ def classify_images(images_dir, results_dic, model):
               classifier function to classify the pet images,
               values must be either: resnet alexnet vgg (string)
      Returns:
-           None - results_dic is mutable data type so no return needed.         
+           None - results_dic is mutable data type so no return needed.
+
+    The classify_images function takes in the results_dic dictionary that contains the filenames of the pet images
+    and their corresponding pet image labels. It then processes each pet image by running it through the classifier
+    function to get the classifier label. It compares the pet image label and the classifier label to determine if
+    they match, and adds the results to the results_dic dictionary.
+
+    The end result of the classify_images function is a dictionary of lists with the pet image filename as the key
+    and the value being a list that contains the pet image label, the classifier label, and a binary value indicating
+    whether      the pet image and classifier labels match. This dictionary is returned by the classify_images
+    function and is used in subsequent functions to calculate the accuracy of the classifier.
     """
-    None 
+
+    for filename, label in results.items():
+        image_path = image_dir + filename
+        classification_result = classifier(image_path, model)
+        classification = classification_result.strip().lower()
+        comparison = 1 if label in classification else 0
+        results[filename] = [label, classification, comparison]
+
+    for k, v in results.items():
+        print(k, v)
