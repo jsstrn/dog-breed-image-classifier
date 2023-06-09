@@ -42,10 +42,10 @@ def get_pet_labels(image_dir):
          index 0 = pet image label (string)
     """
 
-    result = dict()
+    pet_labels = dict()
     filenames = listdir(image_dir)
     for name in filenames:
         label = ' '.join(name.lower().split('_')[:-1])
-        if name not in result:
-            result[name] = label
-    return result
+        if name not in pet_labels:
+            pet_labels[name] = label
+    return pet_labels

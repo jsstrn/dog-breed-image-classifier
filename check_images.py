@@ -63,10 +63,10 @@ def main():
     #             get_pet_labels(in_arg.dir)
     # This function creates the results dictionary that contains the results,
     # this dictionary is returned from the function call as the variable results
-    results = get_pet_labels(image_dir)
+    pet_labels = get_pet_labels(image_dir)
 
     # Function that checks Pet Images in the results Dictionary using results    
-    check_creating_pet_image_labels(results)
+    check_creating_pet_image_labels(pet_labels)
 
     # Define classify_images function within the file classiy_images.py
     # Once the classify_images function has been defined replace first 'None' 
@@ -76,10 +76,10 @@ def main():
     #             classify_images(in_arg.dir, results, in_arg.arch)
     # Creates Classifier Labels with classifier function, Compares Labels, 
     # and adds these results to the results dictionary - results
-    classify_images(image_dir, results, model)
+    classify_images(image_dir, pet_labels, model)
 
     # Function that checks Results Dictionary using results    
-    check_classifying_images(results)
+    check_classifying_images(pet_labels)
 
     # Define adjust_results4_isadog function within the file adjust_results4_isadog.py
     # Once the adjust_results4_isadog function has been defined replace 'None' 
@@ -89,10 +89,10 @@ def main():
     # Adjusts the results dictionary to determine if classifier correctly 
     # classified images as 'a dog' or 'not a dog'. This demonstrates if 
     # model can correctly classify dog images as dogs (regardless of breed)
-    adjust_results4_isadog(results, dog_names)
+    adjust_results4_isadog(pet_labels, dog_names)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
-    check_classifying_labels_as_dogs(results)
+    check_classifying_labels_as_dogs(pet_labels)
 
     # Define calculates_results_stats function within the file calculates_results_stats.py
     # This function creates the results statistics dictionary that contains a
@@ -100,10 +100,10 @@ def main():
     # dictionary is returned from the function call as the variable results_stats    
     # Calculates results of run and puts statistics in the Results Statistics
     # Dictionary - called results_stats
-    results_stats = calculates_results_stats(results)
+    stats = calculates_results_stats(pet_labels)
 
     # Function that checks Results Statistics Dictionary using results_stats
-    check_calculating_results(results, results_stats)
+    check_calculating_results(pet_labels, stats)
 
     # TODO 6: Define print_results function within the file print_results.py
     # Once the print_results function has been defined replace 'None' 
@@ -112,7 +112,7 @@ def main():
     #      print_results(results, results_stats, in_arg.arch, True, True)
     # Prints summary results, incorrect classifications of dogs (if requested)
     # and incorrectly classified breeds (if requested)
-    print_results(results, results_stats, None, True, True)
+    print_results(pet_labels, stats, model, True, True)
 
     # Measure total program runtime by collecting end time
     sleep(5)
