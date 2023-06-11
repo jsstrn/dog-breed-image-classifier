@@ -113,7 +113,7 @@ def print_incorrectly_classified_dog_images(pet_labels):
 
     for key, values in pet_labels.items():
         label, classification, match, labeled_as_dog, classified_as_dog = values
-        if (match == 0) and sum(labeled_as_dog, classified_as_dog) == 1:
+        if (match == 0) and sum([labeled_as_dog, classified_as_dog]) == 1:
             t.add_row([label, classification])
 
     print(t)
@@ -127,7 +127,7 @@ def print_incorrectly_classified_dog_breeds(pet_labels):
 
     for key, values in pet_labels.items():
         label, classification, match, labeled_as_dog, classified_as_dog = values
-        if (match == 0) and sum(labeled_as_dog, classified_as_dog) == 2:
+        if (match == 0) and sum([labeled_as_dog, classified_as_dog]) == 2:
             t.add_row([label, classification])
 
     print(t)
