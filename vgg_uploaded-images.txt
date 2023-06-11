@@ -1,0 +1,90 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = vgg 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:           Baby_elephant_01.jpg  label:                          b
+ 2 key:              Headphones_01.jpg  label:                          h
+ 3 key:                     Dog_01.jpg  label:                          d
+ 4 key:                     Dog_02.jpg  label:                          d
+Baby_elephant_01.jpg ['baby elephant', 'tusker', 0]
+Headphones_01.jpg ['headphones', 'loudspeaker, speaker, speaker unit, loudspeaker system, speaker system', 0]
+Dog_01.jpg ['dog', 'dalmatian, coach dog, carriage dog', 1]
+Dog_02.jpg ['dog', 'dalmatian, coach dog, carriage dog', 1]
+
+     MATCH:
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier: dalmatian, coach dog, carriage dog
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier: dalmatian, coach dog, carriage dog
+
+ NOT A MATCH:
+
+          Baby_elephant_01.jpg: 
+Real:              baby elephant   Classifier:                         tusker
+
+             Headphones_01.jpg: 
+Real:                 headphones   Classifier: loudspeaker, speaker, speaker unit, loudspeaker system, speaker system
+
+# Total Images 4 # Matches: 2 # NOT Matches: 2
+Baby_elephant_01.jpg ['baby elephant', 'tusker', 0, 0, 0]
+Headphones_01.jpg ['headphones', 'loudspeaker, speaker, speaker unit, loudspeaker system, speaker system', 0, 0, 0]
+Dog_01.jpg ['dog', 'dalmatian, coach dog, carriage dog', 1, 1, 1]
+Dog_02.jpg ['dog', 'dalmatian, coach dog, carriage dog', 1, 1, 1]
+
+     MATCH:
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier: dalmatian, coach dog, carriage dog  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier: dalmatian, coach dog, carriage dog  
+PetLabelDog: 1  ClassLabelDog: 1
+
+ NOT A MATCH:
+
+          Baby_elephant_01.jpg: 
+Real:              baby elephant   Classifier:                         tusker  
+PetLabelDog: 0  ClassLabelDog: 0
+
+             Headphones_01.jpg: 
+Real:                 headphones   Classifier: loudspeaker, speaker, speaker unit, loudspeaker system, speaker system  
+PetLabelDog: 0  ClassLabelDog: 0
+
+# Total Images 4 # Matches: 2 # NOT Matches: 2
+n_images 4
+n_match 2
+n_dogs_img 2
+n_notdogs_img 2
+n_correct_dogs 2
+n_correct_notdogs 2
+n_correct_breed 2
+pct_match 50.0
+pct_correct_breed 100.0
+pct_correct_dogs 100.0
+pct_correct_notdogs 100.0
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed: 100.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed: 100.0
++----------------------+---+
+|     total images     | 4 |
+|   total dog images   | 2 |
+| total non-dog images | 2 |
++----------------------+---+
++-----------+--------------------+----------------+------------------+----------------+
+| cnn model | % correct not dogs | % correct dogs | % correct breeds | % match labels |
++-----------+--------------------+----------------+------------------+----------------+
+|    vgg    |       100.0%       |     100.0%     |      100.0%      |     50.0%      |
++-----------+--------------------+----------------+------------------+----------------+
+
+** Total Elapsed Runtime: 0:0:9
