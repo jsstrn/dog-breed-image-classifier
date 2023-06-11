@@ -17,7 +17,7 @@ Answer: Yes, all three models were able to correctly classify them as non-dog im
 
 4. Based upon your answers for questions 1. - 3. above, select the model architecture that you feel did the best at classifying the four uploaded images. Describe why you selected that model architecture as the best on uploaded image classification.
 
-Answer: All three models classified the dog images correctly. In this regard they all performed equally well. Interestingly, all three models performed poorly at classifying the other images. They all classified the "baby elephant" as a "tusker" and they all classified the headphones differently.
+Answer: vgg is superior to the other models with 93.33% accuracy in classifying dog breeds. In the uploaded_images, all three models classified the dog images correctly. In this regard they all performed equally well. Interestingly, all three models performed poorly at classifying the other images. They all classified the "baby elephant" as a "tusker" and they all classified the headphones differently.
 
 - alexnet classified headphones as gasmask, respirator, gas helmet
 - resnet classified headphones as stethoscope
