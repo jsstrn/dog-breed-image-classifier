@@ -87,23 +87,23 @@ def calculates_results_stats(results):
     for key, values in results.items():
         label, classification, match, labeled_as_dog, classified_as_dog = values
 
-        if match == 1:
+        if match:
             stats['n_match'] += 1
 
-        if match == 1 and labeled_as_dog == 1:
-            stats['n_correct_breed'] += 1
-
-        if labeled_as_dog == 1:
+        if labeled_as_dog:
             stats['n_dogs_img'] += 1
 
-        if labeled_as_dog == 1 and classified_as_dog == 1:
+        if not labeled_as_dog:
+            stats['n_notdogs_img'] += 1
+
+        if labeled_as_dog and match:
+            stats['n_correct_breed'] += 1
+
+        if labeled_as_dog and classified_as_dog:
             stats['n_correct_dogs'] += 1
-        else:
+
+        if not labeled_as_dog and not classified_as_dog:
             stats['n_correct_notdogs'] += 1
-
-    stats['n_notdogs_img'] = stats['n_images'] - stats['n_dogs_img']
-
-    pct = lambda n: n * 100.0
 
     if stats['n_images'] is not 0:
         stats['pct_match'] = pct(stats['n_match'] / stats['n_images'])
@@ -116,3 +116,7 @@ def calculates_results_stats(results):
         stats['pct_correct_notdogs'] = pct(stats['n_correct_notdogs'] / stats['n_notdogs_img'])
 
     return stats
+
+
+def pct(n):
+    return n * 100.0

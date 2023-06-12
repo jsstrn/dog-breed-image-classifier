@@ -94,10 +94,10 @@ def print_results(pet_labels, stats, model, print_incorrect_dogs=False, print_in
     ])
     print(t)
 
-    if print_incorrect_dogs and ((correct_dogs + correct_non_dogs) is not total_images):
+    if print_incorrect_dogs and correct_dogs + correct_non_dogs is not total_images:
         print_incorrectly_classified_dog_images(pet_labels)
 
-    if print_incorrect_breed and (correct_dogs is not correct_breed):
+    if print_incorrect_breed and correct_dogs is not correct_breed:
         print_incorrectly_classified_dog_breeds(pet_labels)
 
 
