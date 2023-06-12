@@ -115,7 +115,6 @@ def main():
     print_results(pet_labels, stats, model, print_incorrect_dogs=True, print_incorrect_breed=True)
 
     # Measure total program runtime by collecting end time
-    sleep(5)
     end_time = time()
 
     # Computes overall runtime in seconds & prints it in hh:mm:ss format

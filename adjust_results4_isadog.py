@@ -68,19 +68,16 @@ def adjust_results4_isadog(results, dog_file):
            None - results_dic is mutable data type so no return needed.
     """
 
-    dog_names = list()
+    dog_names = dict()  # use dict O(1) look up instead of list O(n) look up
     with open(dog_file, 'r') as dogs:
         dog = dogs.readline()
         while dog is not "":
             dog = dog.strip().replace('/n', '')
-            dog_names.append(dog)
-            dog = dogs.readline()
+            dog_names[dog] = ''
+            dog = dogs.readline()  # read next line
 
     for filename, value in results.items():
         label, classification, match = value
-        label_is_a_dog = 1 if label in dog_names else 0
-        classification_is_a_dog = 1 if classification in dog_names else 0
+        label_is_a_dog = int(label in dog_names)
+        classification_is_a_dog = int(classification in dog_names)
         results[filename].extend([label_is_a_dog, classification_is_a_dog])
-
-    for k, v in results.items():
-        print(k, v)

@@ -21,6 +21,7 @@
 #
 ##
 # Imports classifier function for using CNN to classify images
+import os.path
 from classifier import classifier
 
 
@@ -76,13 +77,10 @@ def classify_images(image_dir, results, model):
     whether      the pet image and classifier labels match. This dictionary is returned by the classify_images
     function and is used in subsequent functions to calculate the accuracy of the classifier.
     """
-
-    for filename, label in results.items():
-        image_path = image_dir + filename
-        classification_result = classifier(image_path, model)
-        classification = classification_result.strip().lower()
-        comparison = 1 if label in classification else 0
-        results[filename] = [label, classification, comparison]
-
-    for k, v in results.items():
-        print(k, v)
+    for filename, value in results.items():
+        label = value[0]
+        image_path = os.path.join(image_dir, filename)
+        result = classifier(image_path, model)
+        classification = result.strip().lower()
+        comparison = int(label in classification)
+        results[filename].extend([classification, comparison])

@@ -89,13 +89,15 @@ def calculates_results_stats(results):
 
         if match == 1:
             stats['n_match'] += 1
-            if labeled_as_dog == 1:
-                stats['n_correct_breed'] += 1
+
+        if match == 1 and labeled_as_dog == 1:
+            stats['n_correct_breed'] += 1
 
         if labeled_as_dog == 1:
             stats['n_dogs_img'] += 1
-            if classified_as_dog == 1:
-                stats['n_correct_dogs'] += 1
+
+        if labeled_as_dog == 1 and classified_as_dog == 1:
+            stats['n_correct_dogs'] += 1
         else:
             stats['n_correct_notdogs'] += 1
 
