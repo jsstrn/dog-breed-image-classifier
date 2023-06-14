@@ -5,15 +5,6 @@
   program: [AI Programming with Python](https://www.udacity.com/course/ai-programming-python-nanodegree--nd089)
 - Course provider: Udacity
 
-## Requirements
-
-First, install [Anaconda](https://www.anaconda.com/download/). Then install the following packages:
-
-```shell
-conda install pillow
-conda install torchvision
-```
-
 ## Getting started
 
 Clone this repository with the tag `project-starter-files` to get the project starter files without any of the
@@ -29,6 +20,54 @@ Using HTTPS
 
 ```shell
 git clone --depth 1 --branch project-starter-files https://github.com/jsstrn/dog-breed-image-classifier.git
+```
+
+### Install Ananconda
+
+First, install [Anaconda](https://www.anaconda.com/download/). This should also install the latest version of Python 3
+for you.
+
+Check the version on Anaconda:
+
+```shell
+conda --version
+```
+
+Update Anaconda and its dependencies:
+
+```shell
+conda update conda
+```
+
+### Create virtual environment
+
+Create a new virtual environment:
+
+```shell
+conda create --name my-new-env
+```
+
+Activate your new environment:
+
+```shell
+conda activate my-new-env
+```
+
+Check which environment you are currently on. The current environment is indicated by an asterisk `*`:
+
+```shell
+conda info --env
+base          /some/dir/to/your/env
+my-new-env *  /some/dir/to/your/env
+```
+
+### Install dependencies
+
+Now install the following packages:
+
+```shell
+conda install pillow
+conda install torchvision
 ```
 
 ## Run the program
